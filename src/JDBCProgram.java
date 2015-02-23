@@ -8,7 +8,7 @@ public class JDBCProgram{
 	static Connection con;
 	public static void main(String args[]){
 
-	JOptionPane.showMessageDialog(null,"JDBC Programming showing Retrieval of Table Data");
+//	JOptionPane.showMessageDialog(null,"JDBC Programming showing Retrieval of Table Data");
 		int choice = -1;
 
 			choice = getChoice();
@@ -29,7 +29,7 @@ public class JDBCProgram{
 			"3. Insert data into Employees Table\n"+
 			"4. Insert data into Orders Table\n"+
 			"5. Retrieve data for Employees Table\n"+
-			"6.  Retrieve data for Orders Table\n"+
+			"6. Retrieve data for Orders Table\n"+
 			"0. Exit\n\n"+
 			"Enter your choice");
 		if (choice == null) System.exit(0);
@@ -196,14 +196,14 @@ public class JDBCProgram{
 		String result = null;
 		String selectString;
 		selectString = "select * from Employees";
-	    result ="Employee_ID\t\tName\n";
+	    result ="ID || Name\n";
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(selectString);
 			while (rs.next()) {
 			    int id = rs.getInt("ID");
 			    String name = rs.getString("Name");
-			    result+=id+"\t\t"+ name+"\n";
+			    result+=id+" || "+ name+"\n";
 			}
 			stmt.close();
 			con.close();
@@ -219,7 +219,7 @@ public class JDBCProgram{
 		String result = null;
 		String selectString;
 		selectString = "select * from Orders";
-		result ="Prod_ID\t\tProductName\t\tEmployee_ID\n";
+		result ="ID || ProductName || Employee_ID\n";
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(selectString);
@@ -227,7 +227,7 @@ public class JDBCProgram{
 				int pr_id = rs.getInt("ID");
 				String prodName = rs.getString("ProductName");
 			    int id = rs.getInt("Employee_ID");
-			    result +=pr_id+"\t\t"+ prodName+"\t\t"+id+"\n";
+			    result +=pr_id+" || "+ prodName+" || "+id+"\n";
 			}
 			stmt.close();
 			con.close();
