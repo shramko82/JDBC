@@ -171,7 +171,7 @@ public class JDBCProgram{
 	{
 		Connection con = getConnection();
 
-		String insertString1, insertString2, insertString3, insertString4;
+		String insertString1, insertString2, insertString3;
 		insertString1 = "insert into Orders values(543, 'Belt', 6323)";
 		insertString2 = "insert into Orders values(432, 'Bottle', 1234)";
 		insertString3 = "insert into Orders values(876, 'Ring', 5678)";
