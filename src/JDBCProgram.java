@@ -155,11 +155,11 @@ public class JDBCProgram{
 
 			stmt.close();
 			con.close();
-
+			JOptionPane.showMessageDialog(null,"Data Inserted into Employees Table");
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-	JOptionPane.showMessageDialog(null,"Data Inserted into Employees Table");
+	
 	}
 
 	/*	Prod_ID 	ProductName 	Employee_ID
@@ -184,11 +184,11 @@ public class JDBCProgram{
 
 			stmt.close();
 			con.close();
-
+			JOptionPane.showMessageDialog(null,"Data Inserted into Orders Table");
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-	JOptionPane.showMessageDialog(null,"Data Inserted into Orders Table");
+	
 	}
 
 	public static void retrieveEmployees(){
@@ -201,17 +201,17 @@ public class JDBCProgram{
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(selectString);
 			while (rs.next()) {
-			    int id = rs.getInt("Employee_ID");
+			    int id = rs.getInt("ID");
 			    String name = rs.getString("Name");
 			    result+=id+"\t\t"+ name+"\n";
 			}
 			stmt.close();
 			con.close();
-
+			JOptionPane.showMessageDialog(null, result);
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-	JOptionPane.showMessageDialog(null, result);
+	
 	}
 
 	public static void retrieveOrders(){
@@ -224,18 +224,18 @@ public class JDBCProgram{
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(selectString);
 			while (rs.next()) {
-				int pr_id = rs.getInt("Prod_ID");
+				int pr_id = rs.getInt("ID");
 				String prodName = rs.getString("ProductName");
 			    int id = rs.getInt("Employee_ID");
 			    result +=pr_id+"\t\t"+ prodName+"\t\t"+id+"\n";
 			}
 			stmt.close();
 			con.close();
-
+			JOptionPane.showMessageDialog(null, result);
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-	JOptionPane.showMessageDialog(null, result);
+	
 	}
 
 }//End of class
