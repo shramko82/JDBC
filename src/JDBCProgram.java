@@ -114,8 +114,8 @@ public class JDBCProgram{
 
 		String createString;
 		createString = "create table Orders (" +
-						"Prod_ID INTEGER, " +
-						"ProductName VARCHAR(20), "+
+						"ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+						"ProductName VARCHAR(20) NOT NULL, "+
 						"Employee_ID INTEGER )";
 
 		try {
@@ -124,11 +124,11 @@ public class JDBCProgram{
 
 			stmt.close();
 			con.close();
-
+			JOptionPane.showMessageDialog(null,"Orders Table Created");
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-	JOptionPane.showMessageDialog(null,"Orders Table Created");
+	
 	}
 
 	/*Employee_ID 	Name
