@@ -88,18 +88,18 @@ public class JDBCProgram{
 
 		String createString;
 		createString = "create table Employees (" +
-							"Employee_ID INTEGER, " +
-							"Name VARCHAR(30))";
+							"ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+							"Name VARCHAR(30) NOT NULL)";
 		try {
 			stmt = con.createStatement();
 	   		stmt.executeUpdate(createString);
 			stmt.close();
 			con.close();
-
+			JOptionPane.showMessageDialog(null,"Employees Table Created");
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-	JOptionPane.showMessageDialog(null,"Employees Table Created");
+	
 	}
 
 	/*CREATE TABLE Orders (
